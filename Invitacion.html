@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Invitación de Boda</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Montserrat:wght@300;400;600&display=swap" rel="stylesheet">
+
+<style>
+:root{
+  --romantic:#f7c6d9;
+  --sunset:#ff9a8b;
+  --sea:#6ec6ff;
+  --palm:#2ecc71;
+  --dark:#0f172a;
+}
+
+*{box-sizing:border-box;margin:0;padding:0}
+
+body{
+  font-family:'Montserrat',sans-serif;
+  background:linear-gradient(180deg,#ffecd2,#fcb69f,#6ec6ff);
+  min-height:100vh;
+  overflow-x:hidden;
+}
+
+.hero{
+  min-height:100vh;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  text-align:center;
+  padding:40px 20px;
+  position:relative;
+}
+
+.card{
+  background:rgba(255,255,255,0.85);
+  backdrop-filter:blur(10px);
+  border-radius:28px;
+  padding:40px 30px;
+  max-width:520px;
+  width:100%;
+  box-shadow:0 20px 60px rgba(0,0,0,.15);
+  animation:fadeUp 1.6s ease;
+}
+
+@keyframes fadeUp{
+  from{opacity:0;transform:translateY(40px)}
+  to{opacity:1;transform:translateY(0)}
+}
+
+h1{
+  font-family:'Playfair Display',serif;
+  font-size:2.2rem;
+  margin-bottom:10px;
+}
+
+h2{
+  font-family:'Playfair Display',serif;
+  font-size:1.6rem;
+  margin-bottom:20px;
+}
+
+#nombre{
+  font-size:1.3rem;
+  font-weight:600;
+  color:#e11d48;
+}
+
+.romantic-text{
+  font-size:1rem;
+  line-height:1.6;
+  margin:20px 0;
+}
+
+.icons{
+  font-size:1.6rem;
+}
+
+.btns{
+  display:grid;
+  gap:14px;
+  margin-top:25px;
+}
+
+.btn{
+  text-decoration:none;
+  padding:14px;
+  border-radius:14px;
+  font-weight:600;
+  transition:.3s;
+}
+
+.map{background:linear-gradient(90deg,#6ec6ff,#38bdf8);color:white}
+.spotify{background:linear-gradient(90deg,#22c55e,#16a34a);color:white}
+.whatsapp{background:linear-gradient(90deg,#25D366,#128C7E);color:white}
+
+.btn:hover{transform:scale(1.05)}
+
+.footer{
+  margin-top:25px;
+  font-size:.8rem;
+  opacity:.7;
+}
+
+/* PALMERAS */
+.palm{
+  position:absolute;
+  bottom:-10px;
+  font-size:3rem;
+  animation:float 6s ease-in-out infinite;
+}
+
+.p1{left:10%}
+.p2{right:12%;animation-delay:2s}
+
+@keyframes float{
+  0%,100%{transform:translateY(0)}
+  50%{transform:translateY(-15px)}
+}
+
+/* OLAS */
+.wave{
+  position:absolute;
+  bottom:0;
+  width:200%;
+  height:120px;
+  background:rgba(255,255,255,0.3);
+  border-radius:100% 100% 0 0;
+  animation:wave 10s linear infinite;
+}
+
+@keyframes wave{
+  from{transform:translateX(0)}
+  to{transform:translateX(-50%)}
+}
+
+.heavy{
+  margin-top:15px;
+  font-size:.9rem;
+  font-weight:600;
+  color:#0f172a;
+}
+
+</style>
+</head>
+<body>
+
+<div class="hero">
+
+  <div class="wave"></div>
+
+  <div class="card">
+    <div class="icons">🌴 🌊 🌅 💍</div>
+
+    <h1>Nuestra Historia</h1>
+    <h2>Estás invitado/a</h2>
+
+    <div id="nombre">Invitado Especial</div>
+
+    <p class="romantic-text">
+      Desde el mar y los atardeceres de Santa Marta 🌅 hasta la fuerza y energía de Medellín 🏔️,
+      dos mundos diferentes se unen por amor.
+      
+      Queremos que seas parte de este momento tan especial en nuestras vidas ❤️
+    </p>
+
+    <div class="btns">
+      <a class="btn map" href="https://maps.google.com" target="_blank">📍 Ver ubicación</a>
+      <a class="btn spotify" href="https://open.spotify.com" target="_blank">🎵 Playlist de la boda</a>
+      <a class="btn whatsapp" href="https://wa.me/573000000000" target="_blank">💬 Confirmar asistencia</a>
+    </div>
+
+    <div class="heavy">🤘 Amor, mar, deporte y música fuerte — nuestra esencia</div>
+
+    <div class="footer">Con amor • Juan Pablo & Ella 💍</div>
+  </div>
+
+  <div class="palm p1">🌴</div>
+  <div class="palm p2">🌴</div>
+
+</div>
+
+<script>
+const params = new URLSearchParams(window.location.search);
+const nombre = params.get("nombre");
+
+if(nombre){
+  const limpio = decodeURIComponent(nombre.replace(/_/g," "));
+  document.getElementById("nombre").innerText = limpio;
+}
+</script>
+
+</body>
+</html>
